@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AWSApp</string>
+    <string name="title_activity_authenticator_ui">AuthenticatorUIActivity</string>
 </resources>
