@@ -1,19 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context="apps.android.fattahnexx103.awsapp.MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username: "
+            android:textColor="#4BCFFA"
+            android:padding="15dp"
+            android:textSize="18sp"
+             />
+
+        <TextView
+            android:id="@+id/username_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" My user name"
+            android:textStyle="bold"
+            android:textColor="#0ABDE3"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Email: "
+            android:textColor="#4BCFFA"
+            android:padding="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/userEmail_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" My user email"
+            android:textStyle="bold"
+            android:textColor="#0ABDE3"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Given Name: "
+            android:textColor="#4BCFFA"
+            android:padding="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/userGivenName_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" User given name"
+            android:textStyle="bold"
+            android:textColor="#0ABDE3"
+            android:textAlignment="viewStart"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number: "
+            android:textColor="#4BCFFA"
+            android:padding="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/userPhone_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" User phhone number"
+            android:textStyle="bold"
+            android:textColor="#0ABDE3"
+            android:textAlignment="viewStart"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/signout_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World! First App"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        android:text="Sign Out"
+        android:layout_gravity="center_horizontal"/>
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -42,8 +42,13 @@ public class AuthenticatorUIActivity extends AppCompatActivity {
                 //Call the SignInUi and use the login function calling it with the above config
                 SignInUI signinUI = (SignInUI) AWSMobileClient.getInstance().getClient(AuthenticatorUIActivity.this, SignInUI.class);
                 signinUI.login(AuthenticatorUIActivity.this, MainActivity.class).authUIConfiguration(config).execute();
+
+
             }
         }).execute();
+
     }
+
+
 
 }
