@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#000000"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="apps.android.fattahnexx103.awsapp.S3Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/fileName_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="File Name "
+            android:textColor="#0ABDE3"
+            android:background="@drawable/text_background"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/chooseFile_btn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#F0DF87"
+            android:layout_margin="10dp"
+            android:text="Choose File"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/uploadFile_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="50dp"
+        android:background="#F0DF87"
+        android:layout_marginTop="10dp"
+        android:text="UPLOAD FILE"/>
+
+</LinearLayout>

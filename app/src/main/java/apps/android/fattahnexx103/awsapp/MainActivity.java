@@ -1,5 +1,6 @@
 package apps.android.fattahnexx103.awsapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,19 +30,22 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button signOutBtn;
+    Button signOutBtn, s3AccessBtn;
     TextView userNameTxtView, userEmailTxtView, userGivenNametextView, userPhoneTextView;
     CognitoUserPool userPool;
+    boolean isSignedIn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); //hide the action bar on top
         setContentView(R.layout.activity_main);
 
         //get the userPool through the configuration file
         userPool = new CognitoUserPool(this, AWSMobileClient.getInstance().getConfiguration());
 
         signOutBtn = (Button) findViewById(R.id.signout_btn);
+        s3AccessBtn = (Button) findViewById(R.id.s3_storage_button);
         userNameTxtView = (TextView) findViewById(R.id.username_textView);
         userEmailTxtView = (TextView) findViewById(R.id.userEmail_textView);
         userGivenNametextView = (TextView) findViewById(R.id.userGivenName_textView);
@@ -78,12 +82,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(view.getId() == R.id.signout_btn){
-                    Toast.makeText(MainActivity.this, " ", Toast.LENGTH_SHORT).show();
                     currUser.signOut();
+                    IdentityManager.getDefaultIdentityManager().signOut();
+                    isSignedIn = false;
+                    //go back to authenticatorActivity class for sign in again
+                    Intent intent = new Intent(MainActivity.this, AuthenticatorUIActivity.class);
+                    startActivity(intent);
 
                 }
         }}
         );
+        s3AccessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.getId() == R.id.s3_storage_button){
+                    if (isSignedIn) {
+                        ///send out intent to go to S3 File Upload/Download Activity
+                        Intent intent = new Intent(MainActivity.this, S3Activity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+
+
 
 
     }
