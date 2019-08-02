@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,8 @@ import java.net.URISyntaxException;
 public class S3Activity extends AppCompatActivity implements View.OnClickListener {
 
     TextView fileNameTextView;
-    Button uploadButton, chooseFileButton;
+    Button uploadButton, chooseFileButton, downloadButton;
+    EditText downloadFileEditText;
     Uri fileUri;
 
     @Override
@@ -57,9 +59,12 @@ public class S3Activity extends AppCompatActivity implements View.OnClickListene
         fileNameTextView = (TextView) findViewById(R.id.fileName_textView);
         uploadButton = (Button) findViewById(R.id.uploadFile_btn);
         chooseFileButton = (Button) findViewById(R.id.chooseFile_btn);
+        downloadButton = (Button) findViewById(R.id.downloadFile_btn);
+        downloadFileEditText = (EditText)findViewById(R.id.downloadfile_editText);
 
         fileNameTextView.setText("Choose File");
         uploadButton.setOnClickListener(this);
+        downloadButton.setOnClickListener(this);
         chooseFileButton.setOnClickListener(this);
 
     }
@@ -82,6 +87,12 @@ public class S3Activity extends AppCompatActivity implements View.OnClickListene
             intent.setAction(Intent.ACTION_GET_CONTENT);
             intent.setType("*/*"); //any type of file
             startActivityForResult(intent.createChooser(intent, "Select File"), 10);
+        }
+
+        if(view.getId() == R.id.downloadFile_btn){
+            if(downloadFileEditText.getText() != null) {
+                downloadWithTransferUtility(downloadFileEditText.getText().toString());
+            }
         }
 
     }
@@ -170,6 +181,36 @@ public class S3Activity extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onError(int id, Exception ex) {
                 ex.printStackTrace();
+            }
+        });
+    }
+
+    public void downloadWithTransferUtility(String filePath){
+
+        TransferUtility transferUtility = TransferUtility.builder()
+                .context(this)
+                .awsConfiguration(AWSMobileClient.getInstance().getConfiguration())
+                .s3Client(new AmazonS3Client(AWSMobileClient.getInstance().getCredentialsProvider()))
+                .build();
+
+        TransferObserver downloadObserver = transferUtility.download("s3Folder/main.json", new File(filePath));
+
+        downloadObserver.setTransferListener(new TransferListener() {
+            @Override
+            public void onStateChanged(int id, TransferState state) {
+                if (state == TransferState.COMPLETED){
+                    Toast.makeText(getApplicationContext(), "FILE HAS BEEN DOWNLOADED", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onProgressChanged(int id, long bytesCurrent, long bytesTotal) {
+
+            }
+
+            @Override
+            public void onError(int id, Exception ex) {
+                    ex.printStackTrace();
             }
         });
     }

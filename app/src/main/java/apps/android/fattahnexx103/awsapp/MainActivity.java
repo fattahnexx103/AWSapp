@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +29,12 @@ import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button signOutBtn, s3AccessBtn;
+    Button signOutBtn, s3AccessBtn, lambdaButton;
     TextView userNameTxtView, userEmailTxtView, userGivenNametextView, userPhoneTextView;
     CognitoUserPool userPool;
-    boolean isSignedIn = true;
+    CognitoUser currUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +51,14 @@ public class MainActivity extends AppCompatActivity {
         userEmailTxtView = (TextView) findViewById(R.id.userEmail_textView);
         userGivenNametextView = (TextView) findViewById(R.id.userGivenName_textView);
         userPhoneTextView = (TextView) findViewById(R.id.userPhone_textView);
+        lambdaButton = (Button) findViewById(R.id.lambda_button);
 
-        final CognitoUser currUser = userPool.getCurrentUser(); //gets the current user
+        currUser = userPool.getCurrentUser(); //gets the current user
         userNameTxtView.setText(currUser.getUserId());
+        signOutBtn.setOnClickListener(this);
+        s3AccessBtn.setOnClickListener(this);
+        lambdaButton.setOnClickListener(this);
+
 
         currUser.getDetailsInBackground(new GetDetailsHandler() {
             @Override
@@ -77,36 +83,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
 
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(view.getId() == R.id.signout_btn){
-                    currUser.signOut();
-                    IdentityManager.getDefaultIdentityManager().signOut();
-                    isSignedIn = false;
-                    //go back to authenticatorActivity class for sign in again
-                    Intent intent = new Intent(MainActivity.this, AuthenticatorUIActivity.class);
-                    startActivity(intent);
+    @Override
+    public void onClick(View view) {
 
-                }
-        }}
-        );
-        s3AccessBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(view.getId() == R.id.s3_storage_button){
-                    if (isSignedIn) {
-                        ///send out intent to go to S3 File Upload/Download Activity
-                        Intent intent = new Intent(MainActivity.this, S3Activity.class);
-                        startActivity(intent);
-                    }
-                }
+        if(view.getId() == R.id.signout_btn){
+            currUser.signOut();
+            IdentityManager.getDefaultIdentityManager().signOut();
+            currUser = null;
+            //go back to authenticatorActivity class for sign in again
+            Intent intent = new Intent(MainActivity.this, AuthenticatorUIActivity.class);
+            startActivity(intent);
+
+        }
+
+        if(view.getId() == R.id.s3_storage_button){
+            if (currUser != null) {
+                ///send out intent to go to S3 File Upload/Download Activity
+                Intent intent = new Intent(MainActivity.this, S3Activity.class);
+                startActivity(intent);
             }
-        });
+        }
 
-
-
+        if(view.getId() == R.id.lambda_button){
+            if(currUser != null){
+                Intent intent = new Intent(MainActivity.this, LambdaActivity.class);
+                startActivity(intent);
+            }
+        }
 
     }
 }

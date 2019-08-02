@@ -8,11 +8,21 @@
     android:orientation="vertical"
     tools:context="apps.android.fattahnexx103.awsapp.S3Activity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#0ABDE3"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:text="Upload a File"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:weightSum="3">
 
         <TextView
@@ -48,5 +58,39 @@
         android:background="#F0DF87"
         android:layout_marginTop="10dp"
         android:text="UPLOAD FILE"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#0ABDE3"
+        android:layout_marginTop="30dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:text="Download a File"/>
+
+
+    <EditText
+        android:id="@+id/downloadfile_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_background"
+        android:hint="Download File Path here"
+        android:textColorHint="#0ABDE3"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/downloadFile_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="50dp"
+        android:background="#F0DF87"
+        android:layout_marginTop="20dp"
+        android:text="DoWNLOAD FILE"/>
 
 </LinearLayout>

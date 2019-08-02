@@ -141,5 +141,15 @@
         android:text="Access S3 Storage"
         android:layout_gravity="center_horizontal"/>
 
+    <Button
+        android:id="@+id/lambda_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0DF87"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:text="Access Lambda Activity"
+        android:layout_gravity="center_horizontal"/>
+
 
 </LinearLayout>
