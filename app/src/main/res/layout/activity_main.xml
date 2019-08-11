@@ -1,155 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:orientation="vertical"
     tools:context="apps.android.fattahnexx103.awsapp.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        >
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="62dp"
+        android:text="Username: "
+        android:textColor="#4BCFFA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username: "
-            android:textColor="#4BCFFA"
-            android:padding="15dp"
-            android:textSize="18sp"
-             />
-
-        <TextView
-            android:id="@+id/username_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" My user name"
-            android:textStyle="bold"
-            android:textColor="#0ABDE3"
-            android:textSize="16sp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/username_textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginStart="16dp"
+        android:text=" My user name"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Email: "
-            android:textColor="#4BCFFA"
-            android:padding="15dp"
-            android:textSize="18sp"
-            />
 
-        <TextView
-            android:id="@+id/userEmail_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" My user email"
-            android:textStyle="bold"
-            android:textColor="#0ABDE3"
-            android:textSize="16sp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="User Email: "
+        android:textColor="#4BCFFA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Given Name: "
-            android:textColor="#4BCFFA"
-            android:padding="15dp"
-            android:textSize="18sp"
-            />
-
-        <TextView
-            android:id="@+id/userGivenName_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" User given name"
-            android:textStyle="bold"
-            android:textColor="#0ABDE3"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/userEmail_textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginStart="16dp"
+        android:text=" My user email"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone Number: "
-            android:textColor="#4BCFFA"
-            android:padding="15dp"
-            android:textSize="18sp"
-            />
 
-        <TextView
-            android:id="@+id/userPhone_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" User phhone number"
-            android:textStyle="bold"
-            android:textColor="#0ABDE3"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Given Name: "
+        android:textColor="#4BCFFA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/userGivenName_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=" User given name"
+        android:textAlignment="viewStart"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Phone Number: "
+        android:textColor="#4BCFFA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/userPhone_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=" User phone number"
+        android:textAlignment="viewStart"
+        android:textColor="#0ABDE3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/textView4" />
 
 
     <Button
         android:id="@+id/signout_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:background="#F0DF87"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="50dp"
         android:text="Sign Out"
-        android:layout_gravity="center_horizontal"/>
+        app:layout_constraintBottom_toTopOf="@+id/s3_storage_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/s3_storage_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:background="#F0DF87"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="20dp"
         android:text="Access S3 Storage"
-        android:layout_gravity="center_horizontal"/>
+        app:layout_constraintBottom_toTopOf="@+id/lambda_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/lambda_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
         android:background="#F0DF87"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="20dp"
-        android:text="Access Lambda Activity"
-        android:layout_gravity="center_horizontal"/>
+        android:text="Access DynamoDB Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

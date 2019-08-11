@@ -215,4 +215,34 @@ public class S3Activity extends AppCompatActivity implements View.OnClickListene
         });
     }
 
+//    public void Download(File DownloadingImagePath,String ImageBucket,String ImageName){
+//        try{
+////            AWSCredentials credentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
+////            AmazonS3 s3 = new AmazonS3Client(credentials);
+////            java.security.Security.setProperty("networkaddress.cache.ttl" , "60");
+////            s3.setRegion(Region.getRegion(Regions.AP_SOUTHEAST_1));
+////            s3.setEndpoint("https://s3-ap-southeast-1.amazonaws.com/");
+////            TransferUtility transferUtility = new TransferUtility(s3, mContext);
+//            TransferObserver observer = transferUtility.download(ImageBucket, ImageName, DownloadingImagePath);
+//            observer.setTransferListener(new TransferListener() {
+//                @Override
+//                public void onStateChanged(int id, TransferState state) {
+//                    //Log.e("Amazon Stats",state.name());
+//                }
+//
+//                @Override
+//                public void onProgressChanged(int id, long bytesCurrent, long bytesTotal) {
+//
+//                }
+//
+//                @Override
+//                public void onError(int id, Exception ex) {
+//
+//                }
+//            });
+//        } catch (Exception ignored){
+//        }
+//    }
+
+
 }
